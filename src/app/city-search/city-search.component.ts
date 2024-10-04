@@ -6,6 +6,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { WeatherService } from '../weather/weather.service'
 import { debounceTime } from 'rxjs/operators'
+import {NgIf} from "@angular/common";
 
 @Component({
     selector: 'app-city-search',
@@ -18,6 +19,7 @@ import { debounceTime } from 'rxjs/operators'
         MatFormFieldModule,
         MatInputModule,
         MatIcon,
+        NgIf,
     ],
 })
 export class CitySearchComponent implements OnInit {
