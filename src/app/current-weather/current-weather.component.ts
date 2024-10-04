@@ -4,6 +4,7 @@ import {FlexModule} from '@ngbracket/ngx-layout/flex'
 
 import {ICurrentWeather} from '../interfaces'
 import {WeatherService} from '../weather/weather.service'
+import {BehaviorSubject} from "rxjs";
 
 @Component({
     selector: 'app-current-weather',
@@ -19,9 +20,8 @@ export class CurrentWeatherComponent implements OnInit {
     current!: ICurrentWeather
 
     ngOnInit(): void {
-        this.weatherService
-            .getCurrentWeather('Bethesda', 'US')
-            .subscribe((data) => (this.current = data))
+        this.weatherService.currentWeather$
+            .subscribe(data => (this.current = data));
     }
 
     getOrdinal(date: number) {
